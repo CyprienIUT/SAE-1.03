@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Maxime DUHAMEL">
+    <style>
+        body>header {
+            border: 1px solid black;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        p>code {
+            background-color: rgb(60, 60, 60);
+            color: rgb(255, 190, 137);
+            display: inline-block;
+            padding: 2px;
+            border-radius: 5px;
+        }
+
+        pre>code {
+            background-color: rgb(60, 60, 60);
+            color: rgb(255, 190, 137);
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        pre>code>span {
+            background-color: rgb(60, 60, 60);
+            color: rgb(137, 192, 255);
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        main>h2,
+        section>h2,
+        section>h2,
+        main>header>h2 {
+            border-bottom: 1px solid black;
+        }
+
+        table, td,th {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding : 5px;
+        }
+
+        [class *="bold"] {
+            font-weight: bold;
+        }
+
+        [class *="italic"] {
+            font-style: italic;
+        }
+    </style>
+    <title>TEMPLATE | Documentation Utilisateur</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Nom du produit développé
+        </h1>
+        <h2>
+            Nom du client
+        </h2>
+        <h3>
+            Version 1.0.0 - 29/11/2024
+        </h3>
+    </header>
+    <main>
+        <section>
+            <h2 id="liste" >
+                Liste
+            </h2>
+            <ul>
+                <li>Elt 1</li>
+                <li>Elt 2</li>
+            </ul>
+            
+        </section>
+        <section>
+            <h2>
+                Tableau
+            </h2>
+            <table>
+                <tr>
+                    <th>tableau</th>
+                    <th>à</th>
+                    <th>quatre</th>
+                    <th>colonnes</th>
+                </tr>
+                <tr>
+                    <td>avec</td>
+                    <td>des</td>
+                    <td>valeurs</td>
+                    <td>différentes</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>
+                Code
+            </h2>
+            <h3>
+                Bloc de code
+            </h3>
+            <pre><code>int main() {
+    vecteur vInitial = {35,25,20,20};
+    matrice mEvolution = {{0.9 , 0.06 , 0.08 , 0.05},
+                         {0.03, 0.8  , 0.02 , 0.03},
+                         {0.02, 0.03 , 0.75 , 0.04},
+                         {0.05, 0.11 , 0.15 , 0.88}};
+    vecteur vResultat;
+    
+    afficherVecteur(vInitial,4);
+    
+    afficherMatrice(mEvolution,4);
+    
+    for(int i = 0; i != 30 ; i++){
+        afficherVecteur(vResultat,4);
+        copiervecteur(vInitial,vResultat,4);
+        produitVectMat(vResultat,mEvolution,vResultat,4);
+    }
+ 
+   return EXIT_SUCCESS;
+}</code></pre>
+                <h3>
+                    Code en ligne
+                </h3>
+                <p>Ce <code>code</code> est du code.</p>
+
+        </section>
+
+        <section>
+            <h2>
+                Lien
+            </h2>
+            <a href="#liste">Lien vers le titre Liste</a>
+        </section>
+
+        <section>
+            <h2>Texte</h2>
+
+            <section>
+                <p>
+                    Lorem ipsumdolor sit amet, consectetur adipiscing elit. 
+                </p>
+
+                <h3>
+                    Décoration de texte
+                </h3>
+
+                <h4>
+                    Gras
+                </h4>
+
+                <p>
+                    Ce <span class="bold">texte</span> est en gras
+                </p>
+
+                <h4>Italique</h4>
+                
+                <p>
+                    Ce <span class="italic">texte</span> est en italique
+                </p>
+
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>

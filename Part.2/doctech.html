@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="author" content="1A21">
+    <style>
+        body>header {
+            height: 100vh;
+            width: 100vw;
+
+            border: 1px solid black;
+            border-radius: 25px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        code {
+            background-color: rgb(192, 192, 192);
+        }
+
+        code>span {
+            background-color: white;
+            font-style: italic;
+        }
+
+        main>h2, article>h2, section>h2, main>header>h2 {
+            border-bottom: 1px solid black;
+        }
+    </style>
+    <title>Documentation Technique</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Nom du produit développé
+        </h1>
+        <h2>
+            Nom du client
+        </h2>
+        <h3>
+            Version 1.0.0 - 29/11/2024
+        </h3>
+    </header>
+    <main>
+        <header>
+            <h2>
+                Description du code
+            </h2>
+            <p> Le programme sert à trier le contenu d'un tableau par la méthode du tri par selection et qui affiche le tableau avant et après le tri par selection Un exemple de code en C avec des structures, constantes, fonctions et procédures. Ce programme incroyable correspond au jeu du puissance 4. Chaque joueur joue à tour de rôle jusqu'à ce que l'un d'eux aligne 4 pions à lui dans la grille, auquel cas il gagne.</p>
+        </header>
+
+        <article>
+            <h2>
+                DEFINES
+            </h2>
+            <ul>
+                <li>
+<code>
+N 10<span> (La taille du tableau)</span>
+</code>
+</li>
+<li>
+<code>
+ZERO 0<span> (la valeur 0)</span>
+</code>
+</li>
+<li>
+<code>
+MAX_POINTS 14<span> (Nombre max de point)</span>
+</code>
+</li>
+<li>
+<code>
+ROWS 6<span> (Nombre de lignes dans la grille)</span>
+</code>
+</li>
+<li>
+<code>
+COLS 7<span> (Nombre de colonnes dans la grille)</span>
+</code>
+</li>
+            </ul>
+        </article>
+
+        <section>
+            <h2>
+                STRUCTURES
+            </h2>
+            <article>
+<h3>client</h3>
+<p>Structure d'un client</p>
+<ul>
+<li>
+<code>
+int no_client<span> (numéro du client)</span>
+</code>
+</li>
+<li>
+<code>
+char nom[20]<span> (nom du client)</span>
+</code>
+</li>
+<li>
+<code>
+char prenom[20]<span> (prenom du client)</span>
+</code>
+</li>
+<li>
+<code>
+int age<span> (age du client)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>ocean</h3>
+<p>Structure d'un ocean</p>
+<ul>
+<li>
+<code>
+char nom[20]<span> (nom de l'ocean)</span>
+</code>
+</li>
+<li>
+<code>
+int superficie<span> (superficie de l'ocean)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>Point2D</h3>
+<p>Structure représentant un point dans l'espace 2D.</p>
+<ul>
+<li>
+<code>
+float x<span> (Coordonnée x du point.)</span>
+</code>
+</li>
+<li>
+<code>
+float y<span> (Coordonnée y du point.)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>Rectangle</h3>
+<p>Structure représentant un rectangle.</p>
+<ul>
+<li>
+<code>
+Point2D coinSuperieurGauche<span> (Coin supérieur gauche du rectangle.)</span>
+</code>
+</li>
+<li>
+<code>
+Point2D coinInferieurDroit<span> (Coin inférieur droit du rectangle.)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>Player</h3>
+<p>Structure de joueur</p>
+<ul>
+<li>
+<code>
+char name[50]<span> (Nom du joueur)</span>
+</code>
+</li>
+<li>
+<code>
+char symbol<span> (Symbole du pion du joueur)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>Board</h3>
+<p>Structure de tableau de jeu</p>
+<ul>
+<li>
+<code>
+char grid[ROWS][COLS]<span> (Grille du Jeu)</span>
+</code>
+</li>
+</ul>
+</article>
+            $element = str_replace("- ", "", $element);
+        </section>
+
+        <article>
+            <h2>
+                GLOBALES
+            </h2>
+
+            <ul>
+                <li>
+<code>
+int MAX_NOTE = 20;<span> (Note maximale)</span></code>
+</li>
+<li>
+<code>
+int notes[NB_NOTES]<span> (Liste des notes d’un étudiant)</span></code>
+</li>
+<li>
+<code>
+float PI = 3.14159265359;<span> (Constante représentant la valeur de pi.)</span></code>
+</li>
+<li>
+<code>
+int LARGEUR_MAX = 100;<span> (Constante représentant la largeur maximale d'un rectangle.)</span></code>
+</li>
+<li>
+<code>
+int currentPlayer<span> (Joueur actuel)</span></code>
+</li>
+<li>
+<code>
+Player player1<span> (Structure du joueur 1)</span></code>
+</li>
+<li>
+<code>
+Player player2<span> (Structure du joueur 2)</span></code>
+</li>
+<li>
+<code>
+Board gameBoard<span> (Structure du tableau de jeu)</span></code>
+</li>
+            </ul>
+        </article>
+
+        <section>
+            <h2>FONCTIONS</h2>
+
+            <article>
+<h3>tri_selection</h3>
+<p>le tableau passé en paramètre est trié par sélection si le tableau est constitué de plus qu'une case remplie. <br><br> Il parcout toute la partie non trié du tableau (à gauche) en comparant les valeurs entre elles, avant de les placer les plus à gauche de la zone non triée. <br><br></p>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+tab T<span> (le tableau à trier)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+none</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>existe</h3>
+<p>à l'aide d'une boucle for, on parcourt le tableau afin de vérifier si la valeur passée en paramètre se trouve dans le tableau passée aussi en paramètre. <br><br> On arrête la recherche dans le tableau si :</p>
+<ul>
+<li>
+<p>la valeur est trouvée dans le tableau</p>
+</li>
+<li>
+<p>OU le tableau a fini d'être parcouru <br><br></p>
+</li>
+</ul>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+tab T<span> (le tableau à parcourir)</span>
+</code>
+</li>
+<li>
+<code>
+int nb<span> (la valeur à trouver dans le tableau)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+bool<span> (true si la valeur est trouvé, false sinon)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>somme</h3>
+<p>on additionne 2 entiers entre eux pour en retourner le résultat <br><br></p>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+int a<span> (le 1er entier)</span>
+</code>
+</li>
+<li>
+<code>
+int b<span> (le 2e entier)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+int<span> (la somme des 2 entiers)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>afficherPoint</h3>
+<p>affiche les coordonnées d'un point graçe a la structure Point2D qui est pris en paramêtre</p>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+Point2D point<span> (Coordonné x et y d'un point)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+none</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>calculerDistance</h3>
+<p>Calcule la distance entre deux points mis en paramètre en fesant une soustraction les coordonné x des points puis y et ensuite les additionne</p>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+point2D a<span> (Coordonné x et y d'un point b)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+float<span> (: La distance entre les deux points)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>calculerAire</h3>
+<p>Calcule l'aire d'un rectangle mis en paramètre en calculant la largeur puis la hauteur et ensuite les multiplie entre</p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+float<span> (largeur * float hauteur Le calcul de l'aire)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>main</h3>
+<p>-initialise deux point(pointA, PointB) de type Point2D -affiche les coordonné des deux points -calcul la distance entre les points -Création d'un rectangle monRectangle de type Rectangle -Calcul de l'aire du rectangle <br><br></p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+none</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>initializeGame</h3>
+<p>Fonction qui initialise le tableau de jeu. Chaque case est remplie par une chaîne de caractère vide. Initialise également le nom de chaque joueur ainsi que le symbole qui représente son pion. <br><br></p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+none</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>printBoard</h3>
+<p>Affiche la grille sous la forme d'un tableau avec des séparateurs verticales "|" pour la mise en page <br><br></p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+none</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>dropDisc</h3>
+<p>Fonction qui permet au joueur dont c'est le tour de placer un pion au sommet de la colonne sélectionnez par column. Renvoie true si la colonne est libre et false sinon. <br><br></p>
+<h4>Paramètres</h4><ul>
+<li>
+<code>
+int column<span> (indice de la colonne)</span>
+</code>
+</li>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+bool<span> (colonne est libre.)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>checkWin</h3>
+<p>Fonction qui parcours la grille et vérifie si 4 pions sont alignés. Si c'est le cas, renvoie true et fait gagner le joueur dont c'est le tour. Sinon, retourne false. <br><br></p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+bool<span> (un joueur a aligné 4 pion)</span>
+</code>
+</li>
+</ul>
+</article>
+<article>
+<h3>isBoardFull</h3>
+<p>Fonction qui parcours la grille et vérifie si le tableau est complet. Si c'est le cas, alors renvoie true et la partie est considérée comme un match nul. Sinon, renvoie false. <br><br></p>
+<h4>Paramètres</h4><ul>
+</ul>
+<h4>Valeur Renvoyé</h4><ul>
+<li>
+<code>
+bool<span> (un joueur a aligné 4 pion)</span>
+</code>
+</li>
+</ul>
+</article>
+        </section>
+    </main>
+</body>
+</html>

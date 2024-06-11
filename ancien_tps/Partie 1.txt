@@ -1,0 +1,90 @@
+0) on doit installer un OS dans chaque conteneur
+nécessite un ordinateur logique pour fonctionner
+nécesite un hote sous Linux
+Un conteneur est un processus
+
+Un docker pull ne récupérera une image depuis
+le dépôt public que s’il ne la trouve pas déjà
+localement sur l'ordinateur
+
+docker image pull <nom_image> : récupère l'image qui n'existe pas encore sur le pc
+
+docker container run <nom_image>
+
+1) Oui y a le processus tictac,
+c'est le processus containerd-shim qui a lancé le processus
+system md qui a lancé le processus
+titac 12174
+
+2) Non, on ne peut pas lancer tictac de puis T2
+
+3) /bin/tictac
+non je ne vois pas de which (?)
+non il est pas toujours en cours d'execution
+Le conteneur n'a plus l'air d'exister
+
+docker container ps : liste les conteneurs actifs
+docker container ps -a : liste tous les conteneurs (même ceux inactifs)
+
+4)  CONTAINER ID   IMAGE     COMMAND               CREATED          STATUS          PORTS     NAMES
+    431c1a361086   clock     "/bin/sh -c tictac"   14 minutes ago   Up 14 minutes             interesting_moser
+
+5) docker container ps -a 
+
+TAINER ID   IMAGE               COMMAND                  CREATED          STATUS                      PORTS     NAMES
+c0f9422a723b   clock               "which tictac"           7 minutes ago    Exited (0) 7 minutes ago              admiring_visvesvaraya
+431c1a361086   clock               "/bin/sh -c tictac"      18 minutes ago   Up 18 minutes                         interesting_moser
+ab6497485a7b   hello-world         "/hello"                 19 minutes ago   Exited (0) 19 minutes ago             optimistic_mclean
+ebea7ca6f624   clock               "which tictac"           23 hours ago     Exited (0) 23 hours ago               magical_swirles
+773cb51dead4   clock               "which tictact"          23 hours ago     Exited (1) 23 hours ago               crazy_khayyam
+9277dd0acafb   clock               "/bin/sh -c tictac"      23 hours ago     Exited (137) 23 hours ago             priceless_golick
+e5a6da4ea268   hello-world         "/hello"                 23 hours ago     Exited (0) 23 hours ago               amazing_hamilton
+d0086eb4152a   r301-laravel:10     "/opt/bitnami/script…"   2 weeks ago      Exited (137) 13 days ago              td3_myapp_1
+0d549d13fe69   r301-mariadb:11.0   "/opt/bitnami/script…"   2 weeks ago      Exited (0) 13 days ago                td3_mariadb_1
+
+6) CTRL C NE MARCHE pas
+
+docker container stop <ID_container>
+
+7) cela a mis 5-6sec avant de stoper le container
+
+8) il s'est relancé
+
+9) il ne s'affiche pas sur T1
+
+docker container logs -f <ID> : reaffiche le processus dans le terminal
+ça peut s'arrêter avec un CTRL C
+
+docker container exec -ti 431c1a361086 sh : permet de devenir le root
+
+exec : permet d'exectuer un commande dans un conteneur actif (uniquement)
+
+exec -t : exec doit être attaché à un terminal
+exec -i : exec pour lire des choses au clavier
+
+10) / # which tictac -> /bin/tictac
+
+11) / # ps
+PID   USER     TIME  COMMAND
+    1 root      0:00 tictac
+    6 root      0:00 sh
+   13 root      0:00 ps
+oui y a tictac
+
+12) oui y a 2 tictac, ils ont pas le même lien de parenté (?)
+
+13) non y a pas mon espece personnel car il n'existe pas dans le docker
+
+14) il faut d'abord stoper le container avant de le remove
+
+docker container rm <ID>
+
+docker container cp fic_source_sur_hote <ID>:chemin_absolu_dest_container
+exemple : docker container cp orig.png 19a765bcd3a5:/work
+
+convert orig.png -colorspace gray out.png
+converti une image en couleur en nuance de gris
+
+docker container cp 19a765bcd3a5:/work/orig.png ~
+
+15) l'image a bien été converti en gris

@@ -1,0 +1,32 @@
+1) docker volume create vol_calbert
+
+2) docker volume ls
+
+3) docker volume rm vol_calbert
+
+Mode managé :
+docker container run -v vol_calbert:chemin_absolu_dans_le_conteneur[:ro] nom_du_conteneur
+
+Mode mappé :
+docker container run -v chemin_absolu_d_un_dossier_hote:chemin_absolu_dans_le_conteneur[:ro] nom_du_conteneur
+
+En mode mappé on peut toucher aux fichiers sur l'explorateur de fichiers ou VSC grace au chemin_absolu_d_un_dossier_hote
+
+Pour naviguer dans un conteneur sur VSC :
+
+- avoir l'extension Dev Containers de Microsoft
+- cliquer sur les signes inférieurs et supérieurs en bas à gauche de VSC
+- Appuyer sur Attach to running container
+- prendre un conteneur créer (par exemple qrcode)
+- appuyer sur l'icone de 2 fichiers pour ouvrir un dossier
+- open folder (de préférence sur work)
+
+Pour fermer :
+- rappuyer sur l'icone de départ
+- cliquer sur close remote connection
+
+QR CODE :
+docker container run -ti --rm -v vol_calbert:/work qrcode
+qrencode -o code.png "Essai de QRCode ABC"
+
+Suite du workflow, pas eu le temps

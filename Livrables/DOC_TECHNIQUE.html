@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="1A21">
+    <style>
+        body>header {
+            border: 1px solid black;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        code {
+            background-color: rgb(192, 192, 192);
+        }
+
+        code>span {
+            background-color: white;
+            font-style: italic;
+        }
+
+        main>h2, article>h2, section>h2, main>header>h2 {
+            border-bottom: 1px solid black;
+        }
+    </style>
+    <title>TEMPLATE | Documentation Technique</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Nom du produit développé
+        </h1>
+        <h2>
+            Nom du client
+        </h2>
+        <h3>
+            Version 1.0.0 - 29/11/2024
+        </h3>
+    </header>
+    <main>
+        <header>
+            <h2>
+                Description du code
+            </h2>
+            <p>
+                Un texte qui décrit ce que fait le fichier source. Par exemple, ça peut être une série de fonctions utilitaires pour le produit, ou encore le programme complet d'un jeu de Puissance 4 ou d'un Sudoku.
+            </p>
+        </header>
+
+        <article>
+            <h2>
+                DEFINES
+            </h2>
+            <ul>
+                <li>
+                    <code>NB_NOTES  8<span> (Nombre de notes du bulletin)</span>
+                    </code>
+                </li>
+                <li>
+                    <code>NOTE_MAX  20<span> (La valeur maximale de note)</span>
+                    </code>
+                </li>
+            </ul>
+        </article>
+
+        <section>
+            <h2>
+                STRUCTURES
+            </h2>
+            
+            <article>
+                <h3>
+                    str_etu
+                </h3>
+                <p>
+                    Structure d'un.e étudiant.e
+                </p>
+    
+                <ul>
+                    <li>
+                        <code>char nom[SZ_NOM + 1]<span> (Nom de l'étudiant.e)</span></code>
+                    </li>
+                    <li>
+                        <code>char groupe_td<span> (Lettre indiquant son groupe TD)</span></code>
+                    </li>
+                    <li>
+                        <code>int num_tp<span> (Numéro de son groupe TP (1 ou 2))</span></code>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <article>
+            <h2>
+                GLOBALES
+            </h2>
+
+            <ul>
+                <li>
+                    <code>int notes[NB_NOTES]<span> (Liste des notes d'un.e étudiant.e)</span></code>
+                </li>
+            </ul>
+        </article>
+
+        <section>
+            <h2>FONCTIONS</h2>
+
+            <article>
+                <h3>int ajoute_etu</h3>
+
+                <p>Un descriptif détaillé de ce que fait la fonction entrant dans les détails de ses caractéristiques, des conditions particulières d'utilisation, faisant apparaître éventuellement :</p>
+                <ul>
+                    <li>
+                        <p>Un formatage sommaire</p>
+                    </li>
+                    <li>
+                        <p>sous forme de listes</p>
+                    </li>
+                </ul>
+                <p><br>et de sauts de lignes</p>
+
+                <div>
+                    <h4>
+                        Paramètres
+                    </h4>
+    
+                    <ul>
+                        <li>
+                            <code>char* nom<span> (Nom de l'étudiant.e)</span></code>
+                        </li>
+                        <li>
+                            <code>char groupe_td<span> (Son groupe TD)</span></code>
+                        </li>
+                        <li>
+                            <code>int num_tp<span> (Son numéro de groupe TP)</span></code>
+                        </li>
+                    </ul>
+                </div>
+
+                <h4>Valeur renvoyé</h4>
+                <ul>
+                    <li>
+                        <code>int<span> (Numéro d'identité de l'étudiant.e ajouté.e)</span></code>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

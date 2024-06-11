@@ -1,0 +1,68 @@
+ETAPE 1 :
+docker image pull qrcode
+
+ETAPE 2 :
+docker container run -ti --rm  qrcode
+
+Je suis dans le dossier work
+
+ETAPE 3 :
+qrencode --help
+C’est votre source de documentation unique.
+
+ETAPE 4 :
+qrencode -o code.png "Essai de QRCode ABC"
+
+ETAPE 5 :
+Lors du TP l'ID de qrcode était 85586306112d
+
+sur un 2e terminal :
+docker container cp 85586306112d:/work/code.png ~/Documents/"SAE 1.03"/Ressources/code.png
+
+ETAPE 6 :
+docker image pull html2pdf
+docker container run -ti --rm html2pdf
+
+dans un 2e terminal :
+docker container cp ~/Documents/"SAE 1.03"/Ressources/code.png 0de93fe6b7e7:/work/code.png
+docker container cp ~/Documents/"SAE 1.03"/Ressources/invit.html 0de93fe6b7e7:/work/invit.html
+
+dans le 1er terminal :
+html2pdf ALBERT Cyprien invit.html invit.pdf
+
+qrbatch nom_fic_data
+
+pdfbatch nom_fic_data archive_png modele.html
+
+tail -327 < test_invit.csv | tr " " - | tr , " " | cut -d" " -f 1-4 > invit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
